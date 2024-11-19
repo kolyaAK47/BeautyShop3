@@ -1,0 +1,81 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    height: 100%;
+}
+
+/* Контейнер для всей страницы */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+/* Заголовок */
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
+    font-size: 1.8em; /* Уменьшаем размер заголовка */
+}
+
+/* Стиль для карточек */
+.row {
+    display: grid !important; /* Используем CSS Grid с приоритетом */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important; /* Количество карточек на строку, уменьшаем минимум */
+    gap: 20px !important; /* Промежутки между карточками увеличены */
+    grid-auto-rows: 250px !important; /* Уменьшаем высоту строки */
+    padding: 0 !important;
+}
+
+.card {
+    background-color: #fff;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+    /* Эффект при наведении на карточку */
+    .card:hover {
+        transform: translateY(-5px); /* Уменьшаем эффект при наведении */
+    }
+
+.card-img-top {
+    width: 100%;
+    height: 180px; /* Уменьшаем высоту изображения */
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 15px; /* Уменьшаем отступы внутри карточки */
+    text-align: center;
+}
+
+.card-title {
+    font-size: 1.1em; /* Уменьшаем размер шрифта для заголовка */
+    font-weight: bold;
+    color: #333;
+}
+
+/* Медиазапросы для мобильных и планшетов */
+@media (max-width: 768px) {
+    .row {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)) !important; /* Еще больше уменьшаем на планшетах */
+    }
+}
+
+@media (max-width: 480px) {
+    .row {
+        grid-template-columns: 1fr !important; /* Одна карточка в строке для мобильных устройств */
+    }
+}
+
+/* Обновляем ссылки в шаблоне, чтобы не влияли на layout */
+a {
+    color: black;
+    text-decoration: none;
+}

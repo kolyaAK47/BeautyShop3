@@ -1,0 +1,63 @@
+﻿@{
+    var SuccessMessage = ViewData["SuccessMessage"];
+    Layout = "_Layout";
+    ViewData["Title"] = "Профиль администратора";
+    var user = ViewData["user"] as BeautyShop3.Models.User;
+
+    if (user == null)
+    {
+        <p>Пользователь не найден или не авторизован.</p>
+    }
+}
+@model IEnumerable<BeautyShop3.Models.UserOrderViewModel>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/css/User/user.css">  
+    <script src="~/js/User/User.js"></script>
+</head>
+<body>
+<section class="user-profile">
+    <div class="profile-container">
+        <h1>Панель администратора</h1>
+        @if (SuccessMessage != null)
+        {
+            <p style="color: green;">@SuccessMessage</p>
+        }
+        <div class="user-details">
+            <p><strong>ФИО:</strong>@user.name</p>
+            <p><strong>Телефон:</strong>@user.phone</p>
+        </div>
+
+        <div class="action-buttons">
+            <a class="action-btn" href="#">Создать запись</a>
+            <a class="action-btn" asp-controller="Account" asp-action="ChangePassword">Изменить данные</a>
+            <a class="action-btn" asp-controller="User" asp-action="Index" onclick="return confirm('Вы уверены, что хотите удалить профиль?');">Удалить профиль</a>
+            <a class="action-btn" href="javascript:void(0);" id="toggleTableBtn">Список всех записей</a>
+            <a class="action-btn" asp-controller="Appointments" asp-action="Index">Список всех клиентов</a>
+            <a class="action-btn" href="#">Удалить запись</a>
+            <a class="action-btn" asp-controller="Appointments" asp-action="Index">Добавить мастера</a>
+            <a class="action-btn" asp-controller="User" asp-action="AddService">Добавить услугу</a>
+            <a class="action-btn" asp-controller="Appointments" asp-action="Index">Выйти</a>
+        </div>
+    </div>
+
+        <div class="order-list" id="orderTable" style="display:none;">
+            <h2>Все записи</h2>
+            <table class="table" id="table">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>User Name</th>
+                        <th>Service</th>
+                        <th>Master</th>
+                        <th>Order Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+</section>
+</body>

@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - BeautyShop</title>
+    <link rel="stylesheet" type="text/css" href="~/css/Layout/Layout.css">
+    @RenderSection("Styles", required: false)
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <div class="nav-container">
+                <nav class="nav">
+                    <a asp-controller="Home" asp-action="Index">Главная</a>
+                    <a asp-controller="Service" asp-action="Index">Услуги</a>
+                    <a asp-controller="Master" asp-action="Index">Мастера</a>
+                </nav>
+            </div>
+            <div class="header-btn">
+                @if (Context.Session.GetString("UserLoggedIn") == "true")
+                {
+                    <a class="Sign-in" asp-controller="User" asp-action="Profile">Профиль</a>
+                }
+                else
+                {
+                    <a class="Sign-in" asp-controller="Login" asp-action="Index">Войти</a>
+                }
+            </div>
+        </div>
+    </header>
+    <main class="main-content">
+        @RenderBody()
+    </main>
+</body>
+</html>

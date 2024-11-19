@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Мастера";
+    Layout = "_Layout";
+    var masters = (List<BeautyShop3.Models.Master>)Model;
+}
+<head>
+    <link rel="stylesheet" type="text/css" href="~/css/Master/Master.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Список элементов</h2>
+        <div class="row">
+            @foreach (var master in masters)
+            {
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="@Url.Content(master.masterImg)" class="card-img-top" alt="@master.name">
+                        <div class="card-body">
+                            <h5 class="card-title">@master.name</h5>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</body>

@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Вход";
+}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="~/css/Login/Login.css">
+</head>
+<div class="container">
+    <h2>Вход</h2>
+    <form method="POST" action="/login">
+        <div class="form-group">
+            <label for="tel">Телефон</label>
+            <input type="tel" id="tel" name="Phone" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Пароль</label>
+            <input type="password" id="password" name="Password" required>
+        </div>
+        <button type="submit" class="btn">Войти</button>
+    </form>
+
+    <h2>Регистрация</h2>
+    <form method="POST" action="/register">
+        <div class="form-group">
+            <label for="username">ФИО</label>
+            <input type="text" id="username" name="Username" required>
+        </div>
+        <div class="form-group">
+            <label for="tel">Телефон</label>
+            <input type="tel" id="tel" name="Phone" required placeholder="8(999)123-88-88">
+        </div>
+        <div class="form-group">
+            <label for="password">Пароль</label>
+            <input type="password" id="password" name="Password" required>
+        </div>
+        <button type="submit" class="btn">Регистрация</button>
+    </form>
+
+    <a href="#" class="link">Забыли пароль?</a>
+</div>

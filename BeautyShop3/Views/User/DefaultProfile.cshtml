@@ -1,0 +1,72 @@
+﻿@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Профиль";
+    var user = (User)ViewData["user"];
+    var isEditingProfile = ViewData["isEditingProfile"] as bool? ?? false;
+    var ErrorMessage = ViewData["ErrorMessage"];
+    var SuccessMessage = ViewData["SuccessMessage"];
+    var orders = (List<BeautyShop3.Models.Order>)ViewData["orders"];
+}   
+
+<head>
+    <link rel="stylesheet" type="text/css" href="~/css/User/user.css">
+    <script src="~/js/User/User.js"></script>
+</head>
+
+<section class="user-profile">
+    <div class="profile-container">
+        <h1>Профиль</h1>
+        @if (SuccessMessage != null)
+        {
+            <p style = "color: green;">@SuccessMessage</p>
+        }
+        <div class="user-details">
+            <p><strong>ФИО:</strong> @user.name</p>
+            <p><strong>Телефон:</strong> @user.phone</p>
+        </div>
+
+        <div class="action-buttons">
+            <a class="action-btn" asp-controller="User" asp-action="CreateOrder">Записаться</a>
+            <a class="action-btn" asp-controller="User" asp-action="ChangeEditing">Изменить данные</a>
+            <a class="action-btn" asp-controller="User" asp-action="DeleteUser" onclick="return confirm('Вы уверены, что хотите удалить профиль?');">Удалить профиль</a>
+            <a class="action-btn" asp-controller="User" asp-action="GetAllOrders">Список всех записей</a>
+            <a class="action-btn" asp-controller="User" asp-action="Logout">Выйти</a>
+        </div>
+
+        @if (orders != null)
+        {
+            <div class="order-list">
+                <h2>Ваши записи</h2>
+                <ul>
+                    @foreach (var order in orders)
+                    {
+                        <li>
+                            <span>Запись на: @order.DateTime</span>
+                            <form method="post" asp-controller="User" asp-action="CancelOrder">
+                                <input type="hidden" name="orderId" value="@order.id" />
+                                <button type="submit" class="cancel-btn" onclick="return confirm('Вы уверены, что хотите отменить запись?');">Отменить запись</button>
+                            </form>
+                        </li>
+                    }
+                </ul>
+            </div>
+        }
+        @if (isEditingProfile)
+        {
+            <div class="form-section">
+                <h2>Изменить данные</h2>
+                <form asp-controller="User" asp-action="UpdateUser" method="post">
+                    <input type="hidden" name="id" value="@user.id" />
+                    <label for="name">ФИО:</label>
+                    <input type="text" id="name" name="name" value="@user.name" required />
+                    <label for="phone">Телефон:</label>
+                    <input type="tel" id="phone" name="phone" value="@user.phone" required />
+                    <label for="password">Пароль:</label>
+                    <input type="password" id="password" name="password" value=""  />
+
+                    <button type="submit">Сохранить изменения</button>
+                </form>
+            </div>
+        }
+    </div>
+</section>

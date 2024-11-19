@@ -1,0 +1,78 @@
+a {
+    color: black;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.main-header {
+    margin-bottom: 15px;
+}
+
+.nav {
+    display: flex;
+    gap: 10px;
+    margin: 0;
+    padding-top: 10px;
+}
+
+.nav a {
+    font-size: 20px;
+    transition: 0.3s;
+    margin-left: 100px;
+}
+
+.nav a:hover {
+    transition: 0.3s;
+    opacity: 0.4;
+}
+
+.nav-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.header-btn {
+    padding-top: 10px;
+    margin: 0;
+    padding-right: 100px;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.Sign-in, .Sign-up {
+    background-color: deepskyblue;
+    border: 0;
+    border-radius: 0.3em;
+    font-size: 20px;
+    color: white;
+    transition: 0.3s;
+    width: 120px;
+    height: 40px;
+    text-align: center;
+    display: inline-block;
+    line-height: 40px;
+    transition: transform 0.3s;
+}
+
+.Sign-in:hover, .Sign-up:hover {
+    transition: 0.3s;
+    opacity: 0.9;
+    background-color: black;
+    text-decoration-color: white;
+}
+
+.Sign-in:active, .Sign-up:active {
+   transform: scale(0.90);
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}

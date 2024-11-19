@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\css\User\" />
+    <Folder Include="wwwroot\css\Layout\" />
+    <Folder Include="wwwroot\css\Home\" />
+    <Folder Include="wwwroot\css\Login\" />
+    <Folder Include="wwwroot\css\Master\" />
+    <Folder Include="wwwroot\css\Service\" />
+    <Folder Include="wwwroot\css\CreateOrder\" />
+    <Folder Include="wwwroot\js\CreateOrder\" />
+  </ItemGroup>
+
+</Project>

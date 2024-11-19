@@ -1,0 +1,25 @@
+.main {
+    background-color: ghostwhite;
+    display: flex;
+    justify-content: flex-start; /* Выровняйте содержимое к левому краю */
+    align-items: center; /* Центрируйте содержимое по вертикали */
+    height: calc(100vh - 80px);
+    padding-left: 50px; /* Добавьте отступ слева, чтобы текст не был вплотную к краю */
+    box-sizing: border-box;
+}
+
+.hero-text {
+    font-size: 20px;
+    padding-bottom: 20px;
+    text-align: left; /* Выровняйте текст по левому краю */
+}
+
+    .hero-text h5 {
+        color: deepskyblue;
+    }
+
+.Sign-up {
+    padding-top: 5px;
+    width: 150px;
+    height: 50px;
+}
